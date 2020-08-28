@@ -1,22 +1,26 @@
-import React from "react";
+import React, { Fragment } from "react";
+import HeaderComponent from "../Components/Header/Header.component";
+import HomePage from "./Home/Home.page";
+import { Switch, Route } from "react-router-dom";
+import LoginPage from "./Authentication/LoginPage";
+import RegisterPage from "./Authentication/RegisterPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <HeaderComponent />
+      <Switch>
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+        <Route path="/register">
+          <RegisterPage />
+        </Route>
+        <Route path="/">
+          <HomePage />
+        </Route>
+      </Switch>
+    </Fragment>
   );
 }
 
